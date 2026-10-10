@@ -1,0 +1,41 @@
+[
+ {
+  "slug": "lemo-opuscar",
+  "title": "Lemo-Opuscar 风格图鉴",
+  "desc": "43 种完全用代码做出来的影片风格：真实海报、STYLE.md 原文、示范片、导演与技术指南。",
+  "cover": "lemo-opuscar/img/cover.jpg",
+  "counts": [
+   "43 种风格",
+   "187 张仓库画面",
+   "4 份指南"
+  ],
+  "source": "https://github.com/lemomo-ai/lemo-opuscar",
+  "license": "MIT · © 2026 LemoLab"
+ },
+ {
+  "slug": "awesome-opus5-5-videos",
+  "title": "awesome-opus5-5-videos",
+  "desc": "513 条 Opus 5.5 视频提示词，每条附原视频封面和 X 原帖；可按分类、技术标签筛选，讲解类单独标出。",
+  "cover": "awesome-opus5-5-videos/img/ajith-io-890146.jpg",
+  "counts": [
+   "513 条提示词",
+   "67 条讲解类",
+   "234 条部分提示词"
+  ],
+  "source": "https://github.com/yihui-dev/awesome-opus5-5-videos",
+  "license": "MIT · © 2026 yihui-dev"
+ },
+ {
+  "slug": "opus-video-prompts",
+  "title": "Opus 5.5 Video Prompts",
+  "desc": "“用代码拍视频”：18 份可直接复制的完整提示词、54 个公开案例、写法经验与技术路线（中文）。",
+  "cover": "opus-video-prompts/img/p09.jpg",
+  "counts": [
+   "18 份提示词",
+   "54 个案例",
+   "12 个科普讲解案例"
+  ],
+  "source": "https://github.com/joeseesun/opus-video-prompts",
+  "license": "无 LICENSE 文件；版权归原作者（见源仓库声明）"
+ }
+]

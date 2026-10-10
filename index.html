@@ -1,0 +1,18 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Opus 5.5 视频提示词站</title><style>
+body{margin:0;background:#f6f1e7;color:#1f1b16;font-family:"Noto Serif SC","Songti SC",Georgia,serif}main{max-width:1200px;margin:0 auto;padding:40px 24px}
+h1{font-size:36px;margin:0 0 8px}.lead{color:#5a5146;margin:0 0 28px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:22px}
+.card{background:#fffdf8;border:1px solid #e3d9c8;border-radius:14px;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:.2s}.card:hover{transform:translateY(-3px);box-shadow:0 12px 26px #0002}
+.card .im{aspect-ratio:16/9;background:#ddd}.card img{width:100%;height:100%;object-fit:cover;display:block}.tx{padding:16px 18px}.tx h2{margin:0 0 6px;font-size:21px}.tx p{margin:0 0 10px;color:#3b342b;font-size:14.5px;line-height:1.6}
+.tag{display:inline-block;font:12px system-ui;background:#efe6d6;color:#5a4f40;border-radius:4px;padding:2px 8px;margin:2px 4px 0 0}.src{font:12px system-ui;color:#7d7366;margin-top:8px}
+.err{background:#fff3d6;border:1px solid #e8cf8a;padding:12px;border-radius:8px;font:14px system-ui}footer{text-align:center;color:#7d7366;font:13px system-ui;padding:30px}button{background:#c2410c;color:#fff;border:0;border-radius:999px;padding:6px 14px;cursor:pointer}
+</style></head><body><main><h1>Opus 5.5 视频提示词站</h1><p class="lead">用 Claude Opus 5.5 写代码做视频：三个开源仓库的中文浏览站，挑风格、找提示词、看案例。</p><div class="grid" id="g"><p>加载中…</p></div></main>
+<footer>各子站内容分别来自对应的源仓库，版权与许可以源仓库为准；本站是非官方的浏览站。</footer>
+<script>
+const g=document.getElementById('g'),esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function load(){g.innerHTML='<p>加载中…</p>';const c=new AbortController(),t=setTimeout(()=>c.abort(),15000);
+ fetch('sites.json',{signal:c.signal}).then(r=>{clearTimeout(t);if(!r.ok)throw new Error('HTTP '+r.status);return r.json()}).then(S=>{
+ g.innerHTML=S.map(s=>`<a class="card" href="${esc(s.slug)}/"><div class="im"><img loading="lazy" src="${esc(s.cover)}" alt=""></div><div class="tx"><h2>${esc(s.title)}</h2><p>${esc(s.desc)}</p>${(s.counts||[]).map(x=>`<span class="tag">${esc(x)}</span>`).join('')}<div class="src">来源：${esc(s.source.replace('https://github.com/',''))} · ${esc(s.license)}</div></div></a>`).join('')})
+ .catch(e=>{g.innerHTML=`<div class="err">加载失败（${e.name=='AbortError'?'超过 15 秒未响应':esc(e.message)}）。<button onclick="load()">重试</button></div>`})}
+load();
+</script></body></html>
